@@ -1,23 +1,13 @@
-import logo from './logo.svg';
-import './App.css';
+import './App.scss';
+import Profile from './pages/Profile';
+import logo from './assets/SocialSnap.svg';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='app h-full w-full flex flex-col gap-10 justify-center '>
+      <img src={logo} className='h-36' alt='logo' />
+      <Profile />
+      <h1 className='text-center text-2xl text-violet-900'>Social Snap</h1>
     </div>
   );
 }
