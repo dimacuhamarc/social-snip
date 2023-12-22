@@ -1,14 +1,15 @@
 import './App.scss';
 import Profile from './pages/Profile';
-import logo from './assets/SocialSnap.svg';
+import logo from './assets/SocialSnip.svg';
+import Onboarding from './pages/Onboarding';
+import { MainLayout } from './layouts/MainLayout';
+import Routing from './routing/Routing';
 
 function App() {
   return (
-    <div className='app h-full w-full flex flex-col gap-10 justify-center '>
-      <img src={logo} className='h-36' alt='logo' />
-      <Profile />
-      <h1 className='text-center text-lg text-violet-900'>SocialSnip © 2023. By Marc Dimacuha</h1>
-    </div>
+    <MainLayout>
+      <Routing />
+    </MainLayout>
   );
 }
 

@@ -1,4 +1,4 @@
-import { FaFacebook, FaArrowRight, FaUser, FaCopy } from 'react-icons/fa';
+import { FaFacebook, FaTwitter, FaTwitch, FaArrowRight, FaUser, FaCopy } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
 const links = [
@@ -7,13 +7,23 @@ const links = [
     text: 'Facebook',
     link: 'https://facebook.com',
   },
+  {
+    icon: <FaTwitter className="text-violet-300 text-4xl" />,
+    text: 'Twitter',
+    link: 'https://facebook.com',
+  },
+  {
+    icon: <FaTwitch className="text-violet-300 text-4xl" />,
+    text: 'Twitch',
+    link: 'https://facebook.com',
+  },
 ];
 
 const user_details = [
   {
-    username: 'Kim Winter',
+    username: 'Marc Dimacuha',
     bio: 'Frontend Developer',
-    at: 'winterr_',
+    at: 'mdimacuha',
   }
 ]
 
@@ -52,7 +62,7 @@ export default function Profile() {
         </p>
         <Link to={`@${user_details[0].at}`} onClick={() => copyToClipboard(user_details[0].at)} className="text-neutral-100 text-base hover:underline hover:underline-offset-2">@{user_details[0].at}</Link>
       </div>
-      <div className="inline-flex flex-col h-2/3 w-1/4 px-6 py-8 rounded-xl bg-neutral-800 gap-2 overflow-y-auto overflow-x-hidden scrollbar-thin scrollbar-thumb-purple-500 scroll scrollbar-track-neutral-800 scrollbar-thumb-rounded-full outline outline-offset-4 outline-violet-700">
+      <div className="inline-flex flex-col h-2/3 w-1/4 px-6 py-8 rounded-xl bg-neutral-800 gap-2 overflow-y-auto overflow-x-hidden scrollrounded outline outline-offset-4 outline-violet-700">
         {links.length === 0 ? (
           <EmptyLink />
         ) : (
@@ -69,7 +79,7 @@ function ProfileLink({ icon, text, link }) {
       // to={link}
       // target="_blank"
       rel="noreferrer"
-      className="flex flex-row w-full items-center justify-center gap-3 cursor-pointer hover:bg-neutral-700 rounded-2xl p-4"
+      className="flex flex-row w-full items-center justify-center gap-3 cursor-pointer hover:bg-neutral-700 rounded-2xl p-4 hover:outline outline-violet-700 hover:-outline-offset-8"
     >
       {icon}
       <h1 className="text-violet-100 font-medium text-lg w-full">{text}</h1>
