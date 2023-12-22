@@ -25,7 +25,7 @@ function copyToClipboard(href) {
 function AlertBox({item, msg, type}) {
   return (
     <>
-      <div class="absolute bottom-4 left-4 w-max p-2 bg-violet-800 items-center text-indigo-100 leading-none lg:rounded-full flex lg:inline-flex ring ring-violet-500 ring-offset-4" role="alert">
+      <div class="absolute bottom-6 left-4 w-max p-2 bg-violet-800 items-center text-indigo-100 leading-none rounded-full flex lg:inline-flex outline outline-offset-4 outline-violet-500" role="alert">
         <span class="flex gap-1 items-center rounded-full bg-violet-500 uppercase px-2 py-1 text-xs font-bold mr-3"><span><FaCopy/></span>{type}</span>
         <span class="font-semibold mr-2  text-left flex-auto"><span className='font-bold'>{item}</span>{msg}</span>
         <Link>
@@ -45,14 +45,14 @@ export default function Profile() {
       {/* <alertbox msg={`${user_details[0].at} to clipboard!`} type={'Snapped!'}/>
       <alertbox msg={`${user_details[0].at} to clipboard!`} type={'Snapped!'}/> */}
       <AlertBox item={`${user_details[0].at}`} msg=' to clipboard!' type={'Snipped!'}/>
-      <div className="h-1/3 w-1/4 px-10 py-12 rounded-xl bg-neutral-800 shadow-lg hover:shadow-indigo-950 hover:scale-105 cursor-pointer ">
+      <div className="h-1/3 w-1/4 px-10 py-12 rounded-xl bg-neutral-800 shadow-lg hover:shadow-indigo-950 hover:scale-105 cursor-pointer outline outline-offset-4 outline-violet-700 hover:-outline-offset-8">
         <h1 className="text-violet-300 font-bold text-4xl">{user_details[0].username}</h1>
         <p className="text-neutral-100 font-semibold text-xl">
           {user_details[0].bio}
         </p>
         <Link to={`@${user_details[0].at}`} onClick={() => copyToClipboard(user_details[0].at)} className="text-neutral-100 text-base hover:underline hover:underline-offset-2">@{user_details[0].at}</Link>
       </div>
-      <div className="inline-flex flex-col h-2/3 w-1/4 px-6 py-8 rounded-xl bg-neutral-800 gap-2 overflow-y-auto overflow-x-hidden scrollbar-thin scrollbar-thumb-purple-500 scroll scrollbar-track-neutral-800 scrollbar-thumb-rounded-full">
+      <div className="inline-flex flex-col h-2/3 w-1/4 px-6 py-8 rounded-xl bg-neutral-800 gap-2 overflow-y-auto overflow-x-hidden scrollbar-thin scrollbar-thumb-purple-500 scroll scrollbar-track-neutral-800 scrollbar-thumb-rounded-full outline outline-offset-4 outline-violet-700">
         {links.length === 0 ? (
           <EmptyLink />
         ) : (
