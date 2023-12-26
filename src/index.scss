@@ -8,10 +8,11 @@
   margin: 0 auto;
   transition: all 0.5s ease-in-out;
   scroll-behavior: smooth;
-  //outline: red 1px solid;
+  // outline: red 1px solid;
+  user-select: none;
 }
 
 body {
-  background-color: rgb(196 181 253 / 0.9);
+  background-color: rgba(205, 199, 230, 0.9);
 }
 

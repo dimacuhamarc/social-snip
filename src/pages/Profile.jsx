@@ -1,5 +1,5 @@
-import { FaFacebook, FaTwitter, FaTwitch, FaArrowRight, FaUser, FaCopy } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import { FaFacebook, FaTwitter, FaTwitch, FaArrowRight, FaCopy } from 'react-icons/fa';
+import { Link, useParams } from 'react-router-dom';
 
 const links = [
   {
@@ -27,11 +27,6 @@ const user_details = [
   }
 ]
 
-function copyToClipboard(href) {
-  navigator.clipboard.writeText(href);
-  AlertBox (`${<span className='font-bold'>{user_details[0].at}</span>} to clipboard!`, 'Snipped!');
-}
-
 function AlertBox({item, msg, type}) {
   return (
     <>
@@ -47,22 +42,20 @@ function AlertBox({item, msg, type}) {
 }
 
 export default function Profile() {
-  document.title = `@${user_details[0].at} | SocialSnip`;
-
+  const { user } = useParams();
+  document.title = `${user} | SocialSnip`;
+  
   return (
-    
-    <div className="flex flex-col w-screen h-4/6 gap-6">
-      {/* <alertbox msg={`${user_details[0].at} to clipboard!`} type={'Snapped!'}/>
-      <alertbox msg={`${user_details[0].at} to clipboard!`} type={'Snapped!'}/> */}
-      <AlertBox item={`${user_details[0].at}`} msg=' to clipboard!' type={'Snipped!'}/>
-      <div className="h-1/3 w-1/4 px-10 py-12 rounded-xl bg-neutral-800 shadow-lg hover:shadow-indigo-950 hover:scale-105 cursor-pointer outline outline-offset-4 outline-violet-700 hover:-outline-offset-8">
+    <div className="flex flex-col w-screen h-4/6 gap-6 max-md:p-8">
+      <AlertBox item={`${user}`} msg=' to clipboard!' type={'Snipped!'}/>
+      <div className="h-1/3 w-96 max-md:w-full px-10 py-12 rounded-xl bg-neutral-800 shadow-lg hover:shadow-indigo-950 hover:scale-105 cursor-pointer outline outline-offset-4 outline-violet-700 hover:-outline-offset-8">
         <h1 className="text-violet-300 font-bold text-4xl">{user_details[0].username}</h1>
         <p className="text-neutral-100 font-semibold text-xl">
           {user_details[0].bio}
         </p>
-        <Link to={`@${user_details[0].at}`} onClick={() => copyToClipboard(user_details[0].at)} className="text-neutral-100 text-base hover:underline hover:underline-offset-2">@{user_details[0].at}</Link>
+        <Link onClick={() => copyToClipboard(user)} className="text-neutral-100 text-base hover:underline hover:underline-offset-2">{user}</Link>
       </div>
-      <div className="inline-flex flex-col h-2/3 w-1/4 px-6 py-8 rounded-xl bg-neutral-800 gap-2 overflow-y-auto overflow-x-hidden scrollrounded outline outline-offset-4 outline-violet-700">
+      <div className="inline-flex flex-col h-2/3 w-96 max-md:w-full px-6 py-8 rounded-xl bg-neutral-800 gap-2 overflow-y-auto overflow-x-hidden scrollrounded outline outline-offset-4 outline-violet-700">
         {links.length === 0 ? (
           <EmptyLink />
         ) : (
@@ -96,4 +89,9 @@ function EmptyLink() {
       </h1>
     </div>
   );
+}
+
+function copyToClipboard(href) {
+  navigator.clipboard.writeText(href);
+  AlertBox (`${<span className='font-bold'>{user_details[0].at}</span>} to clipboard!`, 'Snipped!');
 }

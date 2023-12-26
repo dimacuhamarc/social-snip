@@ -9,9 +9,10 @@ const RouteData = [
     component: () => <Onboarding />
   },
   {
-    path: "/:username",
+    path: "/profile/:user",
     exact: true,
     component: () => <Profile />
+    
   },
 ];
 
