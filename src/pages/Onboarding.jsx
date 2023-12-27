@@ -1,12 +1,11 @@
 import { Link } from "react-router-dom";
-import logo from '../assets/Icon.svg';
 import { FaArrowRight } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import { useState } from "react";
 
 
-export default function Onboarding() {
-  const [isUserSelect, setIsUserSelect] = useState(false);
+export default function Onboarding({isToggled}) {
+  const [isUserSelect, setIsUserSelect] = useState(isToggled || true);
 
   function ToggleUserSelect() {
     if (isUserSelect) {
@@ -28,7 +27,7 @@ export default function Onboarding() {
       </div>
       <div className="w-1/3 bg-gradient-to-br from-violet-500 via-purple-500 to-pink-500 max-xl:hidden rounded-s-3xl">
         <div className="flex flex-col justify-center items-center gap-6 text-left px-12 h-full">
-          <Link to="/profile/@default" className="absolute top-4 right-4 text-white text-2xl hover:bg-white hover:bg-opacity-50 p-1 rounded-full"><FaArrowRight></FaArrowRight></Link>
+          <Link to="/" className="absolute top-4 right-4 text-white text-2xl hover:bg-white hover:bg-opacity-50 p-1 rounded-full"><FaArrowRight></FaArrowRight></Link>
           <div className="flex flex-row justify-center items-center gap-6">
             <h1 className="text-5xl font-bold text-white">Welcome to SocialSnip!</h1>
           </div>
