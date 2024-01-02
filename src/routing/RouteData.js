@@ -1,7 +1,7 @@
 import React from "react";
 import Onboarding from "../pages/Onboarding";
 import Profile from "../pages/Profile";
-import Home from "../pages/Home";
+import MainSite from "../pages/MainSite";
 
 const RouteData = [
   {
@@ -12,7 +12,7 @@ const RouteData = [
   {
     path: "/",
     exact: true,
-    component: () => <Home />
+    component: () => <MainSite />
   },
     {
       path: "/discover",
