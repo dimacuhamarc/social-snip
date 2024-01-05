@@ -27,7 +27,7 @@ export default function NavigationBar() {
       <div className="links flex flex-row gap-2 text-lg text-left font-medium">
         <Link
           to="/onboarding"
-          className="inline-flex justify-center text-white font-light bg-violet-500 border-0 py-2 px-6 focus:outline-none hover:bg-violet-800 rounded-3xl text-lg8"
+          className="inline-flex justify-center text-white font-li bg-violet-500 border-0 py-2 px-6 focus:outline-none hover:bg-violet-800 rounded-3xl text-lg8"
         >
           Get Started
         </Link>

@@ -1,5 +1,22 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  daisyui: {
+    themes: [
+      {
+        SocialSnap: {
+          "primary": "#8b5cf6",
+          "secondary": "#f84900",
+          "accent": "#6d28d9",
+          "neutral": "#f5f5f5",
+          "base-100": "#262626",
+          "info": "#6d28d9",
+          "success": "#15803d",
+          "warning": "#f97316",
+          "error": "#e11d48",
+        },
+      }
+    ],
+  },
   darkMode: ["class"],
   content: [
     './pages/**/*.{js,jsx,ts,tsx}',
@@ -19,6 +36,7 @@ module.exports = {
     extend: {},
   },
   plugins: [
+    require("daisyui"),
     require('tailwind-scrollbar'),
     require("tailwindcss-animate"),
   ],
